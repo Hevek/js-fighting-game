@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+}
+body{background-color: #292929;}
+
+.player_health{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    width: 100%;
+    border: 3px solid #E5E7EB;
+    border-right: none;
+}
+
+.enemy_health{
+    position: relative;
+    border: 3px solid #E5E7EB;
+    border-left: none;
+    width: 100%;
+}
+
+.timer{
+    background-color: #1E293B;
+    border: 3px solid #0F172A;
+    width: 75px;
+    height: 75px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Orbitron', 'sans-serif;';
+    font-weight: bold;
+}
+
+.red_container{
+    position: relative;
+    display: inline-block;
+}
+
+.smaller_container{
+    align-items: center;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    padding: 20px;
+}
+
+#playerHealth{
+    position: absolute;
+    background-color: #6366F1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+#enemyHealth{
+    position: absolute;
+    background-color: #6366F1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#background_player_health{
+    width: 100%;
+    background-color: red;
+    height: 30px;
+}
+
+#background_enemy_health{
+    background-color: red;
+    height: 30px;
+}
+
+.result_display{
+    position: absolute;
+    color: #B91C1C;
+    font-weight: bold;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.main_menu{
+    float: right;
+    background-color: darkred;
+    width: 38vw;
+    height: 77.6vh;
+    display: flex;
+}
