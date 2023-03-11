@@ -2,6 +2,7 @@ const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 let windowWidth = window.innerWidth;
 let windowHeight = window.innerHeight;
+let gameOver = false;
 
 canvas.width = windowWidth * 0.5929721815519765739385065885798 //810
 canvas.height = windowHeight * 0.77625570776255707762557077625571 //510
@@ -253,16 +254,12 @@ function animate(){
 		// document.querySelector('#enemyHealth').style.width = enemy.health + '%'
 		// enemy.hit()
 	}
-	if(player.isAttacking && player.currentFrame === 4){
-		player.isAttacking = false
-	}
-	if(enemy.isAttacking && enemy.currentFrame === 2){
-		enemy.isAttacking = false
-	}
+
+	if(player.isAttacking && player.currentFrame === 4) player.isAttacking = false
+	if(enemy.isAttacking && enemy.currentFrame === 2) enemy.isAttacking = false
+
 	// End game based on health
-	if (enemy.health <= 0 || player.health <= 0){
-		determineWinner(player, enemy)
-	}
+	if (!gameOver && (enemy.health <= 0 || player.health <= 0)) determineWinner(player, enemy)
 }
 
 animate()

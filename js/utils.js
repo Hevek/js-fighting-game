@@ -8,31 +8,25 @@ function rectangularCollision({rectangle1, rectangle2}) {
 }
 
 function determineWinner(){
+	gameOver = true;
 	clearTimeout(timerId)
-	document.querySelector('#resultDisplay').style.display = 'flex'
-	if(player.health === enemy.health){
-		document.querySelector('#resultDisplay').innerHTML = 'Empate'
-	} else if(player.health > enemy.health){
-		document.querySelector('#resultDisplay').innerHTML = 'Jogador 1 vence'
-	} else{
-		document.querySelector('#resultDisplay').innerHTML = 'Jogador 2 vence'
-	}
+	document.querySelector('#resultDisplay').style.display = 'flex';
+
+	if(player.health < enemy.health) document.querySelector('#resultDisplay').innerHTML = 'Jogador 2 vence';
+	else if(player.health > enemy.health) document.querySelector('#resultDisplay').innerHTML = 'Jogador 1 vence';
+	else document.querySelector('#resultDisplay').innerHTML = 'Empate';
 }
 
 let timer = 100
 let timerId
 function decreaseTimer(){
-	if (timer > 0){
-		if(timer<12){
-			if(timer%2!==0){
-				document.querySelector('.timer').style.color = 'red'
-			} else document.querySelector('.timer').style.color = 'white'
-		}
-		timerId = setTimeout(decreaseTimer, 1000)
-		timer--
-		document.querySelector('#timer').innerHTML = timer
+	if(!timer) return determineWinner(player, enemy, timerId)
+
+	if(timer<12){
+		document.querySelector('.timer').style.color = 'white'
+		if(timer%2 !== 0) document.querySelector('.timer').style.color = 'red';
 	}
-	if (timer === 0){
-		determineWinner(player, enemy, timerId)
-	}
+	timerId = setTimeout(decreaseTimer, 1000)
+	timer--
+	document.querySelector('#timer').innerHTML = timer
 }
