@@ -94,5 +94,5 @@ body{background-color: #292929;}
     background-color: darkred;
     width: 38vw;
     height: 77.6vh;
-    display: flex;
+    display: none;
 }
